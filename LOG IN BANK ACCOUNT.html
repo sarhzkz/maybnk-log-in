@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maybank Secure Login (Demo)</title>
+  <!-- Google Fonts for professional look -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #FFD600; /* Maybank yellow */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .login-box {
+      background: #000; /* Black box */
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      color: #FFD600; /* Yellow text */
+    }
+    .login-box h1 {
+      font-family: 'Cinzel', serif;
+      margin-bottom: 20px;
+      color: #FFD600;
+    }
+    input, button {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #FFD600;
+      font-size: 14px;
+    }
+    input {
+      background: #111;
+      color: #FFD600;
+    }
+    button {
+      background: #FFD600;
+      color: #000;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e6c200;
+    }
+    #endingBox {
+      display: none;
+      position: absolute;
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 800px;
+      background: rgba(0,0,0,0.9);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #FFD600;
+      animation: credits 20s linear forwards;
+    }
+    @keyframes credits {
+      from { bottom: -100%; }
+      to { bottom: 110%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box" id="formContainer">
+    <h1>Maybank Secure Login</h1>
+    <p>Please kindly fill in the information to continue.</p>
+    <form onsubmit="showEnding(); return false;">
+      <input type="text" placeholder="User IC number"><br>
+      <input type="text" placeholder="account number"><br>
+      <input type="password" placeholder="Password"><br>
+      <button type="submit">Login</button>
+    </form>
+    <p style="color:#FFD600;">⚠ Warning: Multiple failed attempts may lock your account.</p>
+  </div>
+
+  <div id="endingBox">
+    <p>
+      🎬 This was just a demo. In a real phishing attack, the information you entered would be stolen.  
+      Fake bank pages are one of the most common tricks attackers use.  
+      Always check the URL, look for HTTPS, and never trust unexpected login requests.  
+    </p>
+    <p>— The End —</p>
+  </div>
+
+  <script>
+    function showEnding() {
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('endingBox').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
